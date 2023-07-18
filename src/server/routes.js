@@ -9,10 +9,3 @@ router.use("/", routes);
 
 module.exports = router;
 
-// app.get("/api", (req, res) => {
-//   res.json({ message: "Hello from server!" });
-// });router
-
-// app.listen(PORT, () => {
-//   console.log(`Server listening on ${PORT}`);
-// });
