@@ -37,7 +37,7 @@ const sassConfig = [
 ];
 
 module.exports = {
-  entry: { bundle: ["./src/newclient/index.jsx"] },
+  entry: { bundle: ["./src/frontend/index.jsx"] },
   output: { filename: "[name].js", path: output },
   devtool: "source-map",
   resolve: {
