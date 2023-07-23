@@ -2140,13 +2140,24 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 function Dashboard() {
-  var csObj = {
+  var csCreateObj = {
     cs_name: "Test CS from frontend",
     cs_desc: "Hi I am description",
     hub: "Asia",
     country: "India",
     status: 1,
-    year: "2024"
+    year: "2024",
+    brands: [1, 2]
+  };
+  var csUpdateObj = {
+    cs_id: 5,
+    cs_name: "Test CS 5",
+    cs_desc: "Description5",
+    hub: "Asia",
+    country: "China",
+    status: 1,
+    year: "2024",
+    brands: [2, 3]
   };
   var candies = [{
     id: 1,
@@ -2169,7 +2180,7 @@ function Dashboard() {
   };
   var loadMasterData = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-      var customerSolution;
+      var customerSolution, csById;
       return _regeneratorRuntime().wrap(function _callee$(_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
@@ -2178,7 +2189,16 @@ function Dashboard() {
           case 2:
             customerSolution = _context.sent;
             console.log("data", customerSolution.data.data);
-          case 4:
+
+            // get CS By Id
+            _context.next = 6;
+            return axios__WEBPACK_IMPORTED_MODULE_12___default().post("/api/getCS", {
+              cs_id: 5
+            });
+          case 6:
+            csById = _context.sent;
+            console.log("data", csById.data.data);
+          case 8:
           case "end":
             return _context.stop();
         }
@@ -2195,7 +2215,7 @@ function Dashboard() {
         while (1) switch (_context2.prev = _context2.next) {
           case 0:
             _context2.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_12___default().post("/api/create-cs", csObj);
+            return axios__WEBPACK_IMPORTED_MODULE_12___default().post("/api/create-cs", csCreateObj);
           case 2:
             customerData = _context2.sent;
             console.log("create CS data", customerData.data.data);
@@ -2210,6 +2230,54 @@ function Dashboard() {
       return _ref2.apply(this, arguments);
     };
   }();
+  var updateCS = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+      var customerData;
+      return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+        while (1) switch (_context3.prev = _context3.next) {
+          case 0:
+            _context3.next = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_12___default().post("/api/create-cs", csUpdateObj);
+          case 2:
+            customerData = _context3.sent;
+            console.log("create CS data", customerData.data.data);
+            loadMasterData();
+          case 5:
+          case "end":
+            return _context3.stop();
+        }
+      }, _callee3);
+    }));
+    return function updateCS() {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+  var deleteCS = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
+      var csId, customerData;
+      return _regeneratorRuntime().wrap(function _callee4$(_context4) {
+        while (1) switch (_context4.prev = _context4.next) {
+          case 0:
+            csId = [10, 11]; //by giving array it will work as multi delete
+            _context4.next = 3;
+            return axios__WEBPACK_IMPORTED_MODULE_12___default().post("/api/delete-cs", {
+              cs_id: csId
+            });
+          case 3:
+            customerData = _context4.sent;
+            console.log("create CS data", customerData.data.data);
+            alert("CS ID: ".concat(csId, " is deleted."));
+            loadMasterData();
+          case 7:
+          case "end":
+            return _context4.stop();
+        }
+      }, _callee4);
+    }));
+    return function deleteCS() {
+      return _ref4.apply(this, arguments);
+    };
+  }();
   (0,react__WEBPACK_IMPORTED_MODULE_11__.useEffect)(function () {
     console.log("hi ");
     loadMasterData();
@@ -2222,7 +2290,19 @@ function Dashboard() {
       display: "block"
     },
     onClick: createCS
-  }, "Create CS"));
+  }, "Create CS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default().createElement("button", {
+    style: {
+      display: "block",
+      marginTop: "5px"
+    },
+    onClick: updateCS
+  }, "Update CS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_11___default().createElement("button", {
+    style: {
+      display: "block",
+      marginTop: "5px"
+    },
+    onClick: deleteCS
+  }, "Delete CS"));
 }
 /* harmony default export */ __webpack_exports__["default"] = (Dashboard);
 

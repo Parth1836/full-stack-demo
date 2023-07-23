@@ -5,7 +5,9 @@ const CustomerSolutionController = require("./customerSolutionController");
 
 const customerSolutionController = new CustomerSolutionController();
 
-router.get("/getAllCS", customerSolutionController.getAllCS)
-router.post("/create-cs", customerSolutionController.createCS)
+router.get("/getAllCS", customerSolutionController.getAllCS);
+router.post("/getCS",customerSolutionController.getCSById);
+router.post("/create-cs", customerSolutionController.createOrUpdateCS);
+router.post("/delete-cs", customerSolutionController.deleteCS);
 
 module.exports = router;
