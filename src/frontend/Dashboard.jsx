@@ -1,6 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import CustomHooks from "./CustomHook";
+import Parent from "./pure-component-example/Parent";
+import ParentHOC from "./hoc-example/ParentHOC";
+import { useNavigate } from "react-router-dom";
+
 function Dashboard() {
+  const navigate = useNavigate();
   const csCreateObj = {
     cs_name: "Test CS from frontend",
     cs_desc: "Hi I am description",
@@ -48,10 +54,8 @@ function Dashboard() {
     console.log("data", customerSolution.data.data);
 
     // get CS By Id
-    const csById = await axios.post("/api/getCS", {cs_id:5});
+    const csById = await axios.post("/api/getCS", { cs_id: 5 });
     console.log("data", csById.data.data);
-    
-    
   };
 
   const createCS = async () => {
@@ -68,15 +72,28 @@ function Dashboard() {
 
   const deleteCS = async () => {
     const csId = [10, 11]; //by giving array it will work as multi delete
-    const customerData = await axios.post("/api/delete-cs", {cs_id : csId});
+    const customerData = await axios.post("/api/delete-cs", { cs_id: csId });
     console.log("create CS data", customerData.data.data);
-    alert(`CS ID: ${csId} is deleted.`)
+    alert(`CS ID: ${csId} is deleted.`);
     loadMasterData();
   };
 
+  var sayName = () => {
+    console.log("World is beautiful");
+  };
+
+  var sayOtherName = () => {
+    console.log("Need to see whole world.");
+  };
+
+  const navigation = (url) => {
+    console.log("url", url);
+    navigate(url);
+  }
+
   useEffect(() => {
     console.log("hi ");
-    loadMasterData();
+    // loadMasterData();
     // createData({ id: 3, name: "julubar" });
   }, []);
   return (
@@ -91,6 +108,17 @@ function Dashboard() {
       <button style={{ display: "block", marginTop: "5px" }} onClick={deleteCS}>
         Delete CS
       </button>
+      <button style={{ display: "block", marginTop: "5px" }} onClick={() => navigate("/custom-hooks")}>
+       Navigation button
+      </button>
+      {/* <CustomHooks /> */}
+      {/* Pure Component starts */}
+      <Parent />
+      {/* Pure Component ends */}
+      {/* HOC Component starts */}
+      <ParentHOC />
+      {/* HOC Component ends */}
+      
     </div>
   );
 }
