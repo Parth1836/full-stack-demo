@@ -18,3 +18,11 @@ Above lines in app.js starts node js apis.
 3. React app starts - it hits through app.js through app.use(express.static(`${__dirname}/public`)); line and starts with index.html in public folder.
 4. In index.html, we have given id=root, which we are accessing in index.jsx file and then react application starts.
 
+For unit testing
+
+### For running tests command
+npm test
+
+### For getting code coverage
+npm run converage 
+

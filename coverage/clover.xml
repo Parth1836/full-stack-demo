@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1694860883000" clover="3.2.0">
+  <project timestamp="1694860883000" name="All files">
+    <metrics statements="27" coveredstatements="23" conditionals="8" coveredconditionals="7" methods="16" coveredmethods="12" elements="51" coveredelements="42" complexity="0" loc="27" ncloc="27" packages="6" files="7" classes="7"/>
+    <package name="jest-testing">
+      <metrics statements="5" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="Greet.jsx" path="/Users/parthvaishnani/Documents/Parth/Parth Projects/full-stack-demo/src/frontend/jest-testing/Greet.jsx">
+        <metrics statements="5" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="jest-testing.application-form">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="ApplicationForm.jsx" path="/Users/parthvaishnani/Documents/Parth/Parth Projects/full-stack-demo/src/frontend/jest-testing/application-form/ApplicationForm.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="jest-testing.custom-hooks">
+      <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+      <file name="CounterHooks.jsx" path="/Users/parthvaishnani/Documents/Parth/Parth Projects/full-stack-demo/src/frontend/jest-testing/custom-hooks/CounterHooks.jsx">
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="3" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="5" count="6" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+      </file>
+    </package>
+    <package name="jest-testing.mock-functions">
+      <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+      <file name="CounterTwo.jsx" path="/Users/parthvaishnani/Documents/Parth/Parth Projects/full-stack-demo/src/frontend/jest-testing/mock-functions/CounterTwo.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="jest-testing.mock-server">
+      <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="Handlers.jsx" path="/Users/parthvaishnani/Documents/Parth/Parth Projects/full-stack-demo/src/frontend/jest-testing/mock-server/Handlers.jsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+      <file name="server.jsx" path="/Users/parthvaishnani/Documents/Parth/Parth Projects/full-stack-demo/src/frontend/jest-testing/mock-server/server.jsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="6" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="jest-testing.mock-user-api">
+      <metrics statements="10" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="7" coveredmethods="6"/>
+      <file name="Users.jsx" path="/Users/parthvaishnani/Documents/Parth/Parth Projects/full-stack-demo/src/frontend/jest-testing/mock-user-api/Users.jsx">
+        <metrics statements="10" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="7" coveredmethods="6"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="30" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="18" count="20" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
