@@ -1,13 +1,13 @@
 import { combineReducers } from "redux";
-import storeCSData  from "./slices/customerSolutionSlice";
-import updateSubmitted from "./slices/customerSolutionSlice";
-import updateAge from "./slices/ageSlice";
+import customerSlice   from "./slices/customerSolutionSlice";
+import userSlice from "./slices/userSlice";
+import ageSlice from "./slices/ageSlice";
 
 
 const rootReducer = combineReducers({
-    customerSolution: storeCSData,
-    submittedFlag: updateSubmitted,
-    userAge:updateAge,
+    customerSolution: customerSlice,
+    ageData: ageSlice,
+    users: userSlice,
 });
 
 export default rootReducer;

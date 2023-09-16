@@ -11,6 +11,8 @@ import {
 } from "./redux-store/slices/customerSolutionSlice";
 import TopNavigation from "./layout/header";
 import LeftNavigation from "./layout/leftNavigation";
+import { getAllUsersFromAPI } from "./redux-store/slices/userSlice";
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 
 function Dashboard() {
   const dispatch = useDispatch();
@@ -19,10 +21,12 @@ function Dashboard() {
   const [age, setAge] = useState(null);
   const csData = useSelector((state) => state.customerSolution.csData);
   console.log("csData", csData);
-  const submittedFlag = useSelector((state) => state.submittedFlag.flag);
+  const submittedFlag = useSelector((state) => state.customerSolution.flag);
   console.log("submittedFlag", submittedFlag);
-  const ageValue = useSelector((state) => state.userAge.age);
+  const ageValue = useSelector((state) => state.ageData.age);
   console.log("age", age);
+  const usersArr = useSelector((state) => state.users.usersList);
+  console.log("usersArr", usersArr);
   // const {userSession} = userSession();
   // console.log("userSession", userSession);
   const csCreateObj = {
@@ -76,6 +80,7 @@ function Dashboard() {
 
     //below dispatch is used when saga middleware is used
     dispatch({ type: "getAllCS" });
+    dispatch(getAllUsersFromAPI());
 
     // get CS By Id
     // const csById = await axios.post("/api/getCS", { cs_id: 5 });
@@ -130,7 +135,7 @@ function Dashboard() {
   return (
     <>
       <TopNavigation openLeftNav={openLeftNav} />
-      <LeftNavigation openLeftNav={openLeftNav} /> 
+      {/* <LeftNavigation openLeftNav={openLeftNav} />  */}
       <div className="App">
         This is a full stack, Welcome to my project ! hi !
         <button style={{ display: "block" }} onClick={createCS}>
@@ -178,6 +183,35 @@ function Dashboard() {
           </button>
           <h2>Age: {ageValue}</h2>
         </div>
+        <TableContainer component={Paper} style={{marginLeft:"auto",marginRight:"auto", width: "80%"}}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Name</TableCell>
+            <TableCell align="right">Email</TableCell>
+            <TableCell align="right">Phone</TableCell>
+            <TableCell align="right">username</TableCell>
+            <TableCell align="right">Website</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {usersArr?.length > 0 && usersArr?.map((user) => (
+            <TableRow
+              key={user.id}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {user.name}
+              </TableCell>
+              <TableCell align="right">{user.email}</TableCell>
+              <TableCell align="right">{user.phone}</TableCell>
+              <TableCell align="right">{user.username}</TableCell>
+              <TableCell align="right">{user.website}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
         {/* <CustomHooks /> */}
         {/* Pure Component starts */}
         {/* <Parent /> */}

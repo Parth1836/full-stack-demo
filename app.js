@@ -12,6 +12,10 @@ app.use(bodyParser.json());
 //support parsing of application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const cors = require("cors")
+app.use(cors({
+  origin:"http://localhost:4200",
+}));
 const routes = require("./src/server/routes");
 app.use("/api", routes);
 

@@ -12,11 +12,11 @@ const connection = mysql.createConnection(
     // insecureAuth: true
   });
 
-connection.connect((err) => {
-  console.log("inside db")
-  if (err) throw err;
-  else console.log("db connected");
-})
+// connection.connect((err) => {
+//   console.log("inside db")
+//   if (err) throw err;
+//   else console.log("db connected");
+// })
 
 module.exports = connection;
 

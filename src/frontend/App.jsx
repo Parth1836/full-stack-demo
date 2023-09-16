@@ -1,15 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import MainRoutes from "./routes";
-import SessionContext from "./context/loginContext";
 
 function App() {
  
   return (
-    <div className="App">
-      
+    <div className="App">    
       <MainRoutes />
-     
     </div>
   );
 }
