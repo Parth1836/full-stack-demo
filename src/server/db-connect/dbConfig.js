@@ -14,11 +14,11 @@ const sequelize = new Sequelize(
     }
 }
 );
-sequelize.authenticate().then(() => {
-    console.log("Connection has been established successfully.");
-}).catch((error) => {
-    console.log("Unable to connect to the databse:", error);
-})
+// sequelize.authenticate().then(() => {
+//     console.log("Connection has been established successfully.");
+// }).catch((error) => {
+//     console.log("Unable to connect to the databse:", error);
+// })
 // const testConnection = aysnc () => {
 //     try {
 //         await sequelize.authenticate();

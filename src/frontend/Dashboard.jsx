@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import CustomHooks from "./CustomHook";
 import Parent from "./pure-component-example/Parent";
@@ -13,8 +13,20 @@ import TopNavigation from "./layout/header";
 import LeftNavigation from "./layout/leftNavigation";
 import { getAllUsersFromAPI } from "./redux-store/slices/userSlice";
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import userSession from "./context/UserContext";
+import { random } from "core-js/core/number";
+import { useMemo } from "react";
 
 function Dashboard() {
+  const randomNum = Math.random().toFixed(2);
+  const getRandomNumber = () => {
+    return Math.random().toFixed(2);
+  }
+  const ramndomWithUseMemo = useMemo(()=>getRandomNumber(), []);
+  const ramndomWithUseCallback = useCallback(getRandomNumber, []);
+  console.log("random number", randomNum, ramndomWithUseMemo, ramndomWithUseCallback());
+  const {state, setState}  = userSession();
+  console.log("userSessionData", state); 
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [openLeftNav, setOpenLeftNav] = useState(false);
@@ -137,6 +149,9 @@ function Dashboard() {
       <TopNavigation openLeftNav={openLeftNav} />
       {/* <LeftNavigation openLeftNav={openLeftNav} />  */}
       <div className="App">
+        <h1>Random: {randomNum}</h1>
+        <h1>Random with useMemo: {ramndomWithUseMemo}</h1>
+        <h1>Random with useCallback: {ramndomWithUseCallback()}</h1>
         This is a full stack, Welcome to my project ! hi !
         <button style={{ display: "block" }} onClick={createCS}>
           Create CS

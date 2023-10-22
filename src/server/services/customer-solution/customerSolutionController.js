@@ -13,6 +13,7 @@ class CustomerSolutionController {
     async getAllCS(req, res) {
         try {
             const result = await this._customerSolutionService.getAllCS();
+            console.log("16 controller", result);
             res.status(200).send({
                 status: "success",
                 message: "Customer Solution List",

@@ -11,6 +11,7 @@ class CustomerSolutionService {
     try {
       const getAllCSService =
         await this._customerSolutionDataService.getAllCSDataService();
+        console.log("14 service", getAllCSService);
       return getAllCSService;
     } catch (error) {
       res.send({

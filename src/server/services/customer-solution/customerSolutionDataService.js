@@ -1,3 +1,4 @@
+const axios = require("axios");
 const CustomerSolution = require("../../models/CustomerSolution");
 const Brands = require("../../models/Brand");
 const BrandsLookup = require("../../models/brandLookup");
@@ -20,23 +21,28 @@ class CustomerSolutionDataService {
   }
 
   async getAllCSDataService() {
-    return await CustomerSolution.findAll({
-      include: [
-        {
-          model: BrandsLookup,
-          required: false,
-          include: [
-            {
-              model: Brands,
-              required: false,
-            },
-          ],
-        },
-      ],
-      where: {
-        status: true,
-      },
-    });
+    const result = await axios.get(
+      "https://englishapi.pinkvilla.com/app-api/v1/photo-gallery-feed-page/page/1"
+    );
+    console.log("26 data service", result.data);
+    return result.data;
+    // return await CustomerSolution.findAll({
+    //   include: [
+    //     {
+    //       model: BrandsLookup,
+    //       required: false,
+    //       include: [
+    //         {
+    //           model: Brands,
+    //           required: false,
+    //         },
+    //       ],
+    //     },
+    //   ],
+    //   where: {
+    //     status: true,
+    //   },
+    // });
   }
 
   async getCSById(csId) {

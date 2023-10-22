@@ -3,6 +3,9 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import CustomHooks from "./CustomHook";
 import OtpFunctionalities from "./new-functionalities/OtpFunctionalities";
+import { StarRatings } from "./css-concepts/StarRatings";
+import { TicTacToe } from "./coding-practise/TicTacToe";
+import WeatherForeCast from "./coding-practise/WeatherForecast";
 
 const userRole = "admin";
 
@@ -88,6 +91,9 @@ function MainRoutes() {
         />{" "}
         <Route exact path="/normal" element={<NormalPage />} />{" "}
         <Route exact path="/send-message" element={<OtpFunctionalities />} />{" "}
+        <Route exact path="/star-rating" element={<StarRatings />} />{" "}
+        <Route exact path="/tictactoe" element={<TicTacToe />} />{" "}
+        <Route exact path="/weather-forecast" element={<WeatherForeCast />} />{" "}
       </Routes>{" "}
     </BrowserRouter>
   );

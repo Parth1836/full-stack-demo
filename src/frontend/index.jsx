@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import SessionContext from "./context/loginContext";
 import { Provider } from "react-redux";
 import store from "./redux-store/store";
 
@@ -10,11 +9,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 const userSession = "Parth";
 console.log("root", document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
     {/* <SessionContext.Provider value={{userSession}}>     */}
     <App />
     {/* </SessionContext.Provider> */}
     </Provider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
